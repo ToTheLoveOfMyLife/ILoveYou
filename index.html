@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Love You!</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Romantic font for the proposal text -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Background Video (remains visible throughout) -->
+  <video id="bgVideo" autoplay loop muted playsinline>
+    <source src="assets/background.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Overlay for readability & dynamic effect -->
+  <div id="overlay"></div>
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Main Content Container -->
+  <div id="content">
+    <!-- Section 1: Introduction -->
+    <section id="section1" class="section active animated fadeIn">
+      <h1 class="title">To The Love Of My Life</h1>
+      <p class="subtitle">
+        Turn up the volume. I made this for you to tell you how much I love you.
+        I couldn't find a mountain to yell it from so here is my way to tell you—and the world—how much I adore you!
+      </p>
+      <button id="startBtn" class="btn">Let's Get Started</button>
+    </section>
+
+
+
+    <!-- Section 2: Reasons I Love You (300 Sticky Notes) -->
+    <section id="section2" class="section hidden animated fadeIn">
+      <h2>Reasons I Love You</h2>
+      <div id="sticky-notes-container">
+        <!-- Sticky notes will be generated dynamically via JavaScript -->
+      </div>
+      <button class="btn nextBtn" data-next="section3">Next</button>
+    </section>
+    
+    <!-- Section 3: My Gratitude for You -->
+    <section id="section3" class="section hidden animated fadeIn">
+      <h2>I am so grateful to have you in my life</h2>
+      <p class="text">
+        Every moment with you is a treasure. I cherish your unwavering friendship, your unconditional love, and the way you fill my heart with love. I am forever grateful for you.
+      </p>
+      <div class="gallery">
+        <div class="memory"><img src="assets/image15.jpg" alt="Gratitude 1" class="memory-img" /></div>
+        <div class="memory"><img src="assets/image2.jpg" alt="Gratitude 2" class="memory-img" /></div>
+        <div class="memory"><img src="assets/image27.jpg" alt="Gratitude 3" class="memory-img" /></div>
+        <div class="memory"><img src="assets/image20.jpg" alt="Gratitude 4" class="memory-img" /></div>
+      </div>
+      <button class="btn nextBtn" data-next="section4">Next</button>
+    </section>
+    
+    <!-- Section 4: A Family Beyond Measure -->
+    <section id="section4" class="section hidden animated fadeIn">
+      <h2>I Can't Thank You Enough</h2>
+      <p class="text">
+        You have given me the most precious gift of all—our beautiful family. Every smile, every hug, every shared moment is a blessing that fills my heart.
+      </p>
+      <div class="gallery">
+        <!-- Replace these with family/kids photos -->
+        <div class="memory"><img src="assets/image1.jpg" alt="Family 1" class="memory-img" /></div>
+        <div class="memory"><img src="assets/image6.jpg" alt="Family 2" class="memory-img" /></div>
+        <div class="memory"><img src="assets/image8.jpg" alt="Family 3" class="memory-img" /></div>
+        <div class="memory"><img src="assets/image9.jpg" alt="Family 4" class="memory-img" /></div>
+        <div class="memory"><img src="assets/image10.jpg" alt="Family 5" class="memory-img" /></div>
+        <div class="memory"><img src="assets/image24.jpg" alt="Family 6" class="memory-img" /></div>
+      </div>
+      <button class="btn nextBtn" data-next="section5">Next</button>
+    </section>
+  
+    
+    <!-- Section 5: Animated Proposal Text -->
+    <section id="section5" class="section hidden animated zoomIn">
+      <div id="proposalTextContainer">
+        <div id="proposalBanner">
+          <p><span class="proposal-text">WILL YOU MARRY ME?</span></p>
+        </div>
+      </div>
+      <button id="finalBtn" class="btn">Yes, I Will!</button>
+    </section>
+    
+    <!-- Section 6: Final Sweet Message (over video background) -->
+    <section id="section6" class="section hidden animated fadeIn">
+      <h2>For many more years to go...</h2>
+      <p class="text">
+        I love you more than words can express. Thank you for being my best friend and the heart of our family. Here's to a lifetime of happiness together.
+      </p>
+    </section>
+  </div>
+  
+  <!-- Background Music -->
+  <audio id="bgMusic" src="assets/romantic.mp3" loop></audio>
+  
+  <script src="script.js"></script>
+</body>
+</html>

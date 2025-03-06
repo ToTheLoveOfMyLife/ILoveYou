@@ -1,0 +1,289 @@
+/* Pink-Themed Variables for a Romantic Vibe */
+:root {
+  --primary-color: #fff0f5;       /* Soft pinkish-white for text */
+  --accent-color: #ff8aa2;        /* Pink accent for buttons */
+  --highlight-color: #ffd1dc;     /* Lighter pink highlight */
+  --overlay-start: rgba(255, 192, 203, 0.35);  /* Lighter pink overlay */
+  --overlay-end: rgba(255, 182, 193, 0.5);     /* Darker pink overlay */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Background Video */
+#bgVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+/* Overlay with a pink color shift */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--overlay-start);
+  z-index: -2;
+  animation: overlayShift 10s infinite alternate;
+}
+
+@keyframes overlayShift {
+  from { background: var(--overlay-start); }
+  to   { background: var(--overlay-end); }
+}
+
+/* Confetti Canvas */
+#confettiCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Content Container */
+#content {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+
+/* Full-Screen Sections */
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
+  color: var(--primary-color);
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Typography */
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle, .text {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  max-width: 80%;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Bold, attention‑capturing proposal text */
+.proposal-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--highlight-color);
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Buttons */
+.btn {
+  background-color: var(--accent-color);
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #fff;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Gallery Styling */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.memory {
+  transition: transform 0.3s;
+}
+
+.memory:hover {
+  transform: scale(1.03);
+}
+
+.memory-img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Sticky Notes Container (Section 4) */
+#sticky-notes-container {
+  position: relative;
+  width: 100%;
+  height: 600px; /* Increased height for many notes */
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+/* Sticky Note Styles */
+.sticky-note {
+  position: absolute;
+  width: 180px;
+  padding: 10px;
+  background: #fffa82;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid #e0e0e0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  color: #333;
+  opacity: 0;
+  transform: translateY(-200px) rotate(var(--rotate));
+  animation: fallDown 1s ease-out forwards;
+}
+
+/* Keyframes for falling down animation */
+@keyframes fallDown {
+  to {
+    transform: translateY(0) rotate(var(--rotate));
+    opacity: 1;
+  }
+}
+
+/* Section 5: Animated Proposal Text */
+#proposalTextContainer {
+  position: relative;
+  width: 100%;
+  height: 300px; /* Container height */
+  overflow: hidden;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* No extra background; text overlays the main background/video */
+}
+#proposalBanner {
+  white-space: nowrap;
+  animation: slideInHold 8s ease-in-out forwards;
+}
+#proposalBanner p {
+  margin: 0;
+}
+.proposal-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--highlight-color);
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Keyframes for slide in and hold animation */
+@keyframes slideInHold {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  20% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Keyframes for pulse animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Section 6: Final Sweet Message (over video background) */
+#section6 {
+  background: transparent;
+}
+
+/* Animations */
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+.zoomIn {
+  animation-name: zoomIn;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 600px) {
+  .title {
+    font-size: 2.8rem;
+  }
+  .subtitle, h2, .text {
+    font-size: 1.3rem;
+  }
+  .btn {
+    font-size: 1rem;
+    padding: 12px 30px;
+  }
+}
