@@ -19,7 +19,7 @@
 body, html {
   min-height: 100%;
   overflow-x: hidden; /* Prevent horizontal scroll */
-  /* Removed overflow: hidden so vertical scrolling is allowed */
+  overflow-y: auto;   /* Enable vertical scrolling */
   font-family: 'Raleway', sans-serif;
 }
 
@@ -75,7 +75,7 @@ body, html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Changed from fixed height to allow content expansion */
+  min-height: 100vh; /* Allows sections to expand if needed */
   text-align: center;
   padding: 20px;
   color: var(--primary-color);
@@ -277,11 +277,6 @@ h2 {
 
 /* Responsive Tweaks */
 @media (max-width: 600px) {
-  /* Allow vertical scrolling */
-  body, html {
-    overflow-y: auto;
-  }
-  
   /* Adjust overall section padding for easier scrolling */
   .section {
     padding-bottom: 60px; /* extra space at bottom so buttons are accessible */
