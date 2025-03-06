@@ -309,4 +309,13 @@ h2 {
     height: auto;
     min-height: 100vh;
   }
+  
+  /* Make proposal text mobile friendly */
+  #proposalBanner {
+    white-space: normal;
+  }
+  .proposal-text {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
 }
