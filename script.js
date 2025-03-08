@@ -5,6 +5,13 @@ function showSection(nextId) {
   });
   const nextSection = document.getElementById(nextId);
   nextSection.classList.remove('hidden');
+
+  // Trigger fall-in animation for gallery images in the newly visible section
+  const galleryImages = nextSection.querySelectorAll('.gallery .memory');
+  galleryImages.forEach((img, index) => {
+    img.style.animationDelay = `${index * 0.2}s`;
+    img.classList.add('fall-in');
+  });
 }
 
 // Confetti Animation using Canvas
@@ -63,8 +70,9 @@ function launchConfetti() {
   }, 5000);
 }
 
-// Generate 300 sticky notes by repeating the same 50 reasons (6 times)
+// Generate 300 sticky notes and animate any gallery images present on page load
 window.addEventListener('load', function() {
+  // Generate sticky notes for Section 2
   const container = document.getElementById('sticky-notes-container');
   const reasons = [
     "Reason 1: Your kindness lights up my world.",
@@ -119,11 +127,9 @@ window.addEventListener('load', function() {
     "Reason 50: I cherish every moment with you."
   ];
   
-  // Create 300 sticky notes (repeat the 50 reasons 6 times)
   for (let i = 0; i < 300; i++) {
     let note = document.createElement('div');
     note.className = 'sticky-note';
-    // Randomize left (0-90%), top (20-80%), rotation (-5deg to 5deg), and animation delay (0.2s to 5.5s)
     let left = Math.random() * 90;
     let top = 20 + Math.random() * 60;
     let rotate = (Math.random() * 10 - 5).toFixed(1) + "deg";
@@ -135,6 +141,15 @@ window.addEventListener('load', function() {
     note.innerHTML = "<p>" + reasons[i % 50] + "</p>";
     container.appendChild(note);
   }
+
+  // Animate any gallery images already visible on page load
+  document.querySelectorAll('.gallery').forEach(gallery => {
+    const images = gallery.querySelectorAll('.memory');
+    images.forEach((img, index) => {
+      img.style.animationDelay = `${index * 0.2}s`;
+      img.classList.add('fall-in');
+    });
+  });
 });
 
 // Start the journey: play music and transition to Section 2

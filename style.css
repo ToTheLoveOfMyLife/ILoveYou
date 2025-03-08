@@ -18,8 +18,8 @@
 /* Allow vertical scrolling */
 body, html {
   min-height: 100%;
-  overflow-x: hidden; /* Prevent horizontal scroll */
-  overflow-y: auto;   /* Enable vertical scrolling */
+  overflow-x: hidden;
+  overflow-y: auto;
   font-family: 'Raleway', sans-serif;
 }
 
@@ -75,7 +75,7 @@ body, html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Allows sections to expand if needed */
+  min-height: 100vh;
   text-align: center;
   padding: 20px;
   color: var(--primary-color);
@@ -165,7 +165,7 @@ h2 {
 #sticky-notes-container {
   position: relative;
   width: 100%;
-  height: 600px; /* Consider making this responsive */
+  height: 600px;
   background: rgba(255, 255, 255, 0.1);
   overflow: hidden;
 }
@@ -186,7 +186,7 @@ h2 {
   animation: fallDown 1s ease-out forwards;
 }
 
-/* Keyframes for falling down animation */
+/* Keyframes for falling down animation for sticky notes */
 @keyframes fallDown {
   to {
     transform: translateY(0) rotate(var(--rotate));
@@ -277,12 +277,10 @@ h2 {
 
 /* Responsive Tweaks */
 @media (max-width: 600px) {
-  /* Adjust overall section padding for easier scrolling */
   .section {
-    padding-bottom: 60px; /* extra space at bottom so buttons are accessible */
+    padding-bottom: 60px;
   }
   
-  /* Typography tweaks */
   .title {
     font-size: 2.8rem;
   }
@@ -294,7 +292,6 @@ h2 {
     padding: 12px 30px;
   }
   
-  /* Adjust sticky notes for smaller screens */
   .sticky-note {
     width: 140px;
     font-size: 0.9rem;
@@ -303,14 +300,12 @@ h2 {
     height: 400px;
   }
   
-  /* Optimize background video for mobile */
   #bgVideo {
     width: 100%;
     height: auto;
     min-height: 100vh;
   }
   
-  /* Make proposal text mobile friendly */
   #proposalBanner {
     white-space: normal;
   }
@@ -318,4 +313,22 @@ h2 {
     font-size: 3rem;
     line-height: 1.2;
   }
+}
+
+/* NEW: Animation for gallery images "fall-in" effect */
+@keyframes fallIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Class for triggering the fall-in animation */
+.fall-in {
+  opacity: 0;
+  animation: fallIn 0.8s ease forwards;
 }
