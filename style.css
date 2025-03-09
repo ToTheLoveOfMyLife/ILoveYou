@@ -332,3 +332,47 @@ h2 {
   opacity: 0;
   animation: fallIn 0.8s ease forwards;
 }
+
+/* Floating hearts container for the proposal section */
+#hearts-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1; /* Positioned behind the proposal text */
+}
+
+/* Raining hearts animation */
+@keyframes rainHeart {
+  0% {
+    transform: translateY(-50px) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Updated heart style to use the rain animation */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url('assets/heart.png') no-repeat center center; /* Use your heart image */
+  background-size: contain;
+  opacity: 0.8;
+  animation: rainHeart 4s linear forwards;
+}
+
+/* Enhanced hover effect for the proposal button */
+#finalBtn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 10px var(--highlight-color);
+}

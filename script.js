@@ -83,22 +83,22 @@ window.addEventListener('load', function() {
     "Reason 6: Your creativity amazes me.",
     "Reason 7: You are my constant support.",
     "Reason 8: Your intelligence inspires me.",
-    "Reason 9: Your heart is pure and loving.",
+    "Reason 9: When you laugh so hard you start crying.",
     "Reason 10: We say the same thing at the same time often.",
     "Reason 11: You always make me laugh.",
     "Reason 12: Your butt is super nice.",
     "Reason 13: I can be myself with you.",
     "Reason 14: You are such a great mother.",
-    "Reason 15: You bring joy to my life.",
+    "Reason 15: You always think about others.",
     "Reason 16: You are my support.",
     "Reason 17: Your optimism lifts me up.",
     "Reason 18: Your honesty means the world.",
     "Reason 19: You are my rock.",
-    "Reason 20: Your spirit is beautiful.",
+    "Reason 20: Our trips to lexington just for candles and food.",
     "Reason 21: You work hard to be the best of yourself.",
     "Reason 22: Your love is unconditional.",
     "Reason 23: You make me a better person.",
-    "Reason 24: Your charm is irresistible.",
+    "Reason 24: Your rizz is unmatched.",
     "Reason 25: You make me a happier person.",
     "Reason 26: Your energy is contagious.",
     "Reason 27: You push me to want to be the best of myself.",
@@ -108,21 +108,21 @@ window.addEventListener('load', function() {
     "Reason 31: You love your family so much.",
     "Reason 32: You light up the darkest days.",
     "Reason 33: Your way to show love is by giving.",
-    "Reason 34: You inspire my every moment.",
-    "Reason 35: You make life sparkle.",
+    "Reason 34: You take care of me when I am sick.",
+    "Reason 35: You know how to turn my bad days into good days.",
     "Reason 36: Your heart overflows with love.",
-    "Reason 37: You are my greatest adventure.",
-    "Reason 38: Your words always comfort me.",
-    "Reason 39: Your eyes hold endless wonder.",
-    "Reason 40: You are my forever inspiration.",
-    "Reason 41: Your love is my greatest gift.",
+    "Reason 37: Your weird office supply obsession.",
+    "Reason 38: Everything about you just radiates cuteness.",
+    "Reason 39: Your eyes are an amazing combination of green and brown.",
+    "Reason 40: I can't see my life without you.",
+    "Reason 41: You are my soulmate.",
     "Reason 42: You make every moment special.",
     "Reason 43: Your energy brightens my day.",
     "Reason 44: You fill my life with joy.",
-    "Reason 45: Your love is my inspiration.",
-    "Reason 46: You make my heart sing.",
-    "Reason 47: Your spirit is my light.",
-    "Reason 48: You are my true north.",
+    "Reason 45: You hold me super tight when you need love.",
+    "Reason 46: Seeing you with our baby is the most beautiful thing in this world to me.",
+    "Reason 47: You are nerdy.",
+    "Reason 48: You are my soul mate.",
     "Reason 49: You bring magic to my life.",
     "Reason 50: I cherish every moment with you."
   ];
@@ -174,3 +174,45 @@ document.getElementById('finalBtn').addEventListener('click', function() {
     showSection('section6');
   }, 1500);
 });
+
+// Function to generate raining hearts in the proposal section
+function generateHearts() {
+  const container = document.getElementById('hearts-container');
+  container.innerHTML = ''; // Clear any existing hearts
+
+  // Create multiple heart elements for the "raining" effect
+  for (let i = 0; i < 15; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    // Randomize horizontal position across the container
+    heart.style.left = Math.random() * 100 + '%';
+    // Randomize animation delay for a more natural rain effect
+    heart.style.animationDelay = Math.random() * 2 + 's';
+    container.appendChild(heart);
+    // Remove heart after animation completes to keep the DOM clean
+    heart.addEventListener('animationend', () => {
+      heart.remove();
+    });
+  }
+}
+
+// Modified showSection function to trigger hearts for section5
+function showSection(nextId) {
+  document.querySelectorAll('.section').forEach(section => {
+    section.classList.add('hidden');
+  });
+  const nextSection = document.getElementById(nextId);
+  nextSection.classList.remove('hidden');
+
+  // Trigger fall-in animation for gallery images in the newly visible section
+  const galleryImages = nextSection.querySelectorAll('.gallery .memory');
+  galleryImages.forEach((img, index) => {
+    img.style.animationDelay = `${index * 0.2}s`;
+    img.classList.add('fall-in');
+  });
+
+  // If the proposal section is shown, generate the raining hearts
+  if (nextId === 'section5') {
+    generateHearts();
+  }
+}
